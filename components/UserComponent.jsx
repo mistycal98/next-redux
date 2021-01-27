@@ -4,7 +4,7 @@ import { userGenerators } from "../redux/actions/userGenerator.action";
 import { userTypes } from "../redux/constants/userTypes.action";
 
 const UserComponent = (props) => {
-	console.log(props.users);
+	// console.log(props.users);
 	useEffect(() => {
 		props.fetchUsers();
 	}, []);
@@ -30,7 +30,7 @@ const UserComponent = (props) => {
 };
 
 const mapStateToProps = (state) => {
-	console.log(state);
+	// console.log(state);
 	return {
 		users: state.userReducer.users[0],
 	};
