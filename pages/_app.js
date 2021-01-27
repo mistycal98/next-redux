@@ -1,10 +1,12 @@
 import "../styles/globals.css";
-import App from "next/app";
-import withRedux from "next-redux-wrapper";
-import { Provider } from "react-redux";
-import store from "../redux/store/store";
-import { Component } from "react";
+import { wrapper } from "../redux/store/store";
+import React from "react";
 
+const MyApp = ({ Component, pageProps }) => <Component {...pageProps} />;
+
+export default wrapper.withRedux(MyApp);
+
+// Without Legacy method
 // const MyApp = (props) => {
 // 	return (
 // 		<Provider store={store}>
@@ -23,24 +25,3 @@ import { Component } from "react";
 
 // export default withRedux(makeStore)(MyApp);
 
-class MyApp extends App {
-	static async getServerSideProps({ Component, ctx }) {
-		const appProps = Component.getServerSideProps
-			? await Component.getServerSideProps(ctx)
-			: {};
-		console.log(appProps);
-		return { appProps };
-	}
-	render() {
-		const { Component, appProps } = this.props;
-		return (
-			<Provider store={store}>
-				<Component {...appProps} />
-			</Provider>
-		);
-	}
-}
-
-const makeStore = () => store;
-
-export default withRedux(makeStore)(MyApp);
