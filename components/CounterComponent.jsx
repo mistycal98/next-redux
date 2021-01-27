@@ -4,7 +4,7 @@ import { counterGenerator } from "../redux/actions/counterGenerator.action";
 import { counterTypes } from "../redux/constants/counterTypes.action";
 
 const CounterComponent = (props) => {
-	console.log(props);
+	// console.log(props);
 	return (
 		<div>
 			<h1>Counter {`{start by clicking the buttons}`}</h1>
@@ -16,7 +16,7 @@ const CounterComponent = (props) => {
 };
 
 const mapStateToProps = (state) => {
-	console.log(state);
+	// console.log(state);
 	return {
 		count: state.counterReducer.count,
 	};
