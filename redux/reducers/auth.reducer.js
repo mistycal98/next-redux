@@ -4,7 +4,7 @@ const initialState = {
 	isLogged: false,
 	isRegistered: false,
 };
-liahfilh
+
 export const authReducer = (state = initialState, action) => {
 	// Pure Functions
 	switch (action.type) {
