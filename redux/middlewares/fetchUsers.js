@@ -12,3 +12,4 @@ export const fetchUsers = () => async (dispatch) => {
 		console.log(error, error.message);
 	}
 };
+

@@ -6,16 +6,16 @@ export const authGenerator = (actionType, payload) => {
 	switch (actionType) {
 		// SIGN UP action generators
 		case authTypes.SIGN_UP:
-			return {
-				type: authTypes.SIGN_UP,
-				payload: { ...payload },
-			};
+			return;
 
 		// LOG IN action generator
 		case authTypes.LOG_IN:
 			return {
 				type: authTypes.LOG_IN,
-				payload: { ...payload },
+				payload: {
+					email: "",
+					password: "",
+				},
 			};
 
 		// LOGOUT action generator
