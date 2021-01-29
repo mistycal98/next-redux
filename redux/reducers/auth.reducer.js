@@ -5,13 +5,17 @@ const initialState = {
 	isRegistered: false,
 };
 
-export const authReducer = (state = initialState, action) => {
+export const authReducer = (state = initialState, { type, payload }) => {
 	// Pure Functions
-	switch (action.type) {
+	switch (type) {
 		// SIGN IN pure function
 		case authTypes.SIGN_UP:
+			payload.data.message === "User already Registered" ||
+			payload.data.message === "User Created"
+				? (state.isLogged = true)
+				: null;
 			return {
-				...state,
+				...state, ...state.isLogged
 			};
 
 		// LOG IN pure function
