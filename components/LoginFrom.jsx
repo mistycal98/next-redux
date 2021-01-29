@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { authGenerator } from "../redux/actions/authGenerator.action";
 import { authTypes } from "../redux/constants/authTypes.action";
 
-export const LoginFrom = (props) => {
+const LoginFrom = (props) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
@@ -58,10 +58,17 @@ export const LoginFrom = (props) => {
 	);
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => {
+	console.log(state);
+	return {
+		state: state.authReducer,
+	};
+};
 
-const mapDispatchToProps = (dispatch) => ({
-	signUp: (user) => dispatch(authGenerator(authTypes.SIGN_UP, { user })),
-});
+const mapDispatchToProps = (dispatch) => {
+	return {
+		signUp: (user) => dispatch(authGenerator(authTypes.SIGN_UP, { user })),
+	};
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginFrom);

@@ -1,12 +1,13 @@
 // Authentication Types...
 import { authTypes } from "../constants/authTypes.action";
+import { signup } from "../middlewares/authentication";
 
-export const authGenerator = (actionType, payload) => {
+export const authGenerator = (action, payload) => {
 	// Action Generators
-	switch (actionType) {
+	switch (action) {
 		// SIGN UP action generators
 		case authTypes.SIGN_UP:
-			return;
+			return signup(action, payload);
 
 		// LOG IN action generator
 		case authTypes.LOG_IN:
