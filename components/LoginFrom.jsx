@@ -9,7 +9,8 @@ const LoginFrom = (props) => {
 	const [confirmPassword, setConfirmPassword] = useState("");
 
 	const signUp = (event) => {
-		event.preventDefault();
+        event.preventDefault();
+        (props.isLogged === true) ? true : null
 		let user = {
 			email,
 			password,
