@@ -1,6 +1,6 @@
 // Authentication Types...
 import { authTypes } from "../constants/authTypes.action";
-import { signup } from "../middlewares/authentication";
+import { signup, login } from "../middlewares/authentication";
 
 export const authGenerator = (action, payload) => {
 	// Action Generators
@@ -11,13 +11,7 @@ export const authGenerator = (action, payload) => {
 
 		// LOG IN action generator
 		case authTypes.LOG_IN:
-			return {
-				type: authTypes.LOG_IN,
-				payload: {
-					email: "",
-					password: "",
-				},
-			};
+			return login(action, payload);
 
 		// LOGOUT action generator
 		case authTypes.LOGOUT:

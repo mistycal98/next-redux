@@ -2,15 +2,18 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { authGenerator } from "../redux/actions/authGenerator.action";
 import { authTypes } from "../redux/constants/authTypes.action";
+import { useRouter } from "next/router";
 
-const LoginFrom = (props) => {
+const RegisterFrom = (props) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [confirmPassword, setConfirmPassword] = useState("");
 
+	const router = useRouter();
+	// console.log(router);
 	const signUp = (event) => {
-        event.preventDefault();
-        (props.isLogged === true) ? true : null
+		event.preventDefault();
+
 		let user = {
 			email,
 			password,
@@ -18,6 +21,10 @@ const LoginFrom = (props) => {
 		};
 		return props.signUp(user);
 	};
+
+	if (props.state.isRegistered) {
+		router.push("/login");
+	}
 
 	return (
 		<div>
@@ -72,4 +79,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginFrom);
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterFrom);

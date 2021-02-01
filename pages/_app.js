@@ -2,9 +2,9 @@ import "../styles/globals.css";
 import { wrapper } from "../redux/store/store";
 import React from "react";
 
-const MyApp = ({ Component, pageProps }) => <Component {...pageProps} />;
+const App = ({ Component, pageProps }) => <Component {...pageProps} />;
 
-export default wrapper.withRedux(MyApp);
+export default wrapper.withRedux(App);
 
 // Without Legacy method
 // const MyApp = (props) => {

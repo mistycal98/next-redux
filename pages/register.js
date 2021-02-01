@@ -1,7 +1,7 @@
 import React from "react";
-import LoginFrom from "../components/LoginFrom";
+import RegisterFrom from "../components/RegisterFrom";
 
-const login = () => {
-	return <LoginFrom />;
+const register = () => {
+	return <RegisterFrom />;
 };
-export default login;
+export default register;
