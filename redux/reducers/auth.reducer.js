@@ -1,7 +1,8 @@
 import { authTypes } from "../constants/authTypes.action";
+import Cookies from "js-cookie";
 
 const initialState = {
-	isLogged: false,
+	isLogged: Cookies.get("jwt") ? true : false,
 	isRegistered: false,
 	jwt: "null",
 };

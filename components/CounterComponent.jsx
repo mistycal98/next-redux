@@ -3,12 +3,13 @@ import { connect } from "react-redux";
 import { counterGenerator } from "../redux/actions/counterGenerator.action";
 import { counterTypes } from "../redux/constants/counterTypes.action";
 import { useRouter } from "next/router";
+import Cookies from "js-cookie";
 
 const CounterComponent = (props) => {
 	// console.log(props);
 	const router = useRouter();
 
-	if (props.state.isLogged) {
+	if (props.state.isLogged && props.state.jwt && Cookies.get("jwt")) {
 		return (
 			<>
 				<h1>Counter {`{start by clicking the buttons}`}</h1>
@@ -19,11 +20,10 @@ const CounterComponent = (props) => {
 		);
 	} else {
 		if (process.browser) {
-			console.log(router);
+			// console.log(router);
 			router.push("/login");
 		}
-		// router.push("/login")
-		return <h1>Redirecting</h1>;
+		return <h1>Redirecting...</h1>;
 	}
 };
 
